@@ -1,0 +1,223 @@
+body {
+    height:1500px;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(255,216,190);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-radius: 4px;
+    
+}
+
+li {
+    float: left;
+    align-self: center;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: fantasy;
+}
+
+li a:hover:not(.active) {
+    background-color: #ff944d;
+}
+
+.active {
+    background-color: #ff944d;
+}
+.roller {
+position: relative;
+width: 99%;
+height: 520px;
+
+align-content: center;
+
+}
+
+.roller img {
+    
+    height: inherit;
+    width: inherit;
+    margin: 0 10px 0 10px ;
+    border-radius: 10px 10px;
+    z-index: -1;
+    opacity: 0.4;
+    
+}
+
+.roller .intro {
+    position: absolute;
+    top: 190px;
+    left: 40%;
+    font-family: fantasy;
+    font-weight: 200;
+    font-size: 30px;
+    
+    
+}
+.roller .report {
+    position: absolute;
+    top: 110px;
+    left: 46%;
+    
+    font-weight: 300;
+    font-size: 40px;
+    
+    
+}
+
+.roller .more {
+    position: absolute;
+    top: 250px;
+    left: 39%;
+    font-family: monospace;
+    font-size: 20px;
+    font-style: italic;
+    
+}
+.flow {
+position: inherit;
+width: 99%;
+height: 350px;
+margin:20px 20px 0 10px ;
+
+background-color: rgb(163,158,157);
+border-radius: 10px;
+
+
+}
+.flow .flow-head {
+    font-family: fantasy;
+    color: #993333;
+    text-align: center;
+    height: auto;
+    width: inherit;
+}
+
+.account {
+    
+position: inherit;
+width: 99%;
+height: 430px;
+margin:20px 20px 0 10px ;
+
+background-color: rgb(163,158,157);
+border-radius: 10px;
+}
+
+.profile_pic {
+   border-radius: 50%;
+   height: 80px;
+   width: 80px;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+.account .account-head {
+    font-family: fantasy;
+    color: #993333;
+    text-align: center;
+    height: auto;
+    width: inherit;
+}
+div.img {
+    margin-left:50px;
+   
+    border: 1px solid rgb(255,216,190);
+    float: left;
+    width: 200px;
+    height: 200px;
+    right: 40px;
+    border-radius: 50%;
+}	
+
+div.img:hover {
+    border: 1px solid #777;
+    background-color: #ffe6ff;
+}
+
+
+
+div.desc {
+   
+    padding-top:5px;
+    padding:15px;
+    text-align: center;
+}
+
+input[type=button] {
+    background-color: #ffcccc;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration:overline;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 15px;
+    
+}
+input[type=button]:hover {
+    background-color: #ff1a8c;
+}
+
+input[type=password],input[type=email],input[type=text]{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 50%;
+   background-color: #ffcccc;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+}
+
+input[type=submit]:hover {
+    background-color: #ff1a8c;
+}
+
+.login {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 40px;
+    align-content: center;
+    display: block;
+    
+}
+.signup {
+     border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 40px;
+    align-content: center;
+    display: none;
+}

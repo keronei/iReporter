@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>iReporter</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+	            <ul>
+                <li><a href="#new" onclick="menuOrganizer('create_entry');">New Entry</a></li>
+                <li><a href="#update" onclick="menuOrganizer('update_entry');">Edit Entries</a></li>
+                <li><a href="#profile" onclick="menuOrganizer('user_profile');">My Profile</a></li>
+								 <li><a href="#list" onclick="menuOrganizer('view_entries');">Show All</a></li>
+               
+              </ul>
+
+	<div class="container">
+					<div class="page-header">
+						<figure class="fig" style="position: relative; width: 60px;">
+						<span><img src="img/logo.jpg" alt="Logo image" style="width:50px; height:50px; border-radius:50%;"></span>
+						<span style="position: absolute;top: -10px;right: -10px;padding: 5px 10px; border-radius: 50%; background-color: red;color: white;">0</span>
+							<figcaption>iReporter</figcaption>
+						</figure>
+			
+			     <!--h1 style="text-align: right; float: left; position: absolute;">It starts with me,change.</h1-->
+						
+						<p class="user_detail"></p>
+						
+						
+						
+					</div>
+			
+			
+			<div id="main">
+			
+			 
+		
+				
+				<div id="landing_screen" style="display: block;">
+							<p>Hello <username>,</p>
+							<p>Welcome to iReporter, you can create, update , view and remove your red-flags <br>
+							and interventions.<br>
+							To get started, click on the <strong>Menu</strong> and pick an option.</p>
+							
+							
+				</div>
+				
+				<!--This div is swapped based on the selected menu Item-->
+							<div id="create_entry">
+									<p>Create a new entry of either <strong>red-flag</strong> or <strong> intervention</strong></p>
+									<form action="" method="POST">
+										
+												<p>	
+													<select name="choice" title="Choose an Option">
+												
+														<option value="Red_flag">Red Flag</option>
+														<option value="Intervention">Intervention</option>
+													</select>
+												</p>
+												<p>
+													<label for="heading">Title</label><br>
+													<input class="title" type="text" placeholder="brief heading" name="brief_heading" maxlength="15" required>
+												</p>
+												<p>
+													<label for="detail">Please provide detail</label><br>
+													<textarea class="explains" type="text" placeholder="Further detail..." name="detail" required></textarea>
+												</p>
+												
+												<p>Report location</p>
+												<input onclick="getUserLocation();" type="button" name="update_location"  value="Generate location" id="update_location"><br>
+												<p class="user_location" id="user_location_field"  type="text" name="user_location"></p>
+												<p>
+													<label for="evidence">Attach Image/Video evidence</label><br>
+													<input type="file" accept="" name="file_evidence" value="Attach your evidence">
+													
+												</p>
+												<p>
+													<input type="submit" name="submit" value="Send">
+												</p>
+							</form>
+							
+						</div>
+						<div id="update_entry">
+							<p>select an entry to update detail</p>
+							<form action="" method="POST">
+								<select title="Choose an entry to update..."> <option >entries currently unavailable </option></select><br>
+								<input type="text" hidden="true" name="entry_id">
+								
+									<p id="entry_type"></p>
+								<input type="button" value="Remove completely" onclick="confirmDeletion();" disabled="true">
+								<p>
+									<label for="detail">Please update detail</label><br>
+									<textarea class="explain" type="text" placeholder="You can update your explanation" name="detail" required></textarea>
+								</p>
+								
+								<p>Report location</p>
+								<input onclick="getUserLocation();" type="button" name="update_location"  value="Generate location" id="update_location"><br>
+								<p class="user_location" id="user_location_field"  type="text" name="user_location"></p>
+								<p>
+									<p>File evidence may not be available for editing</p>
+									<input type="submit" name="submit" value="Add Update">
+								</p>
+							</form>
+							
+						</div>
+						<div id="view_entries">
+							<p>This is the list of entries you have created.</p>
+							<table>
+								<caption>Flags and Interventions</caption>
+								<thead>Your Flags and Interventions</thead>
+								<tr>
+									<th>Title</th>
+									<th>Type</th>
+									<th>Date created</th>
+									<th>Status</th>
+								</tr>
+								<tr>
+									<td>Sample entry</td>
+									<td>Red Flag</td>
+									<td>10/10/2018</td>
+									<td>Acted-upon</td>
+								</tr>
+							</table>
+							
+							
+						</div>
+						<div id="user_profile">
+							<p>Your profile -- you can edit from here</p>
+							<form>
+								<img alt="user profile picture" src="img/profile_pic.jpg" class="profile_pic">
+								
+								<p>
+									<select id="role"><option>User Role</option></select>
+								</p>
+							<p>
+								<label for="username">user name</label><br>
+													<input type="text" accept="" name="uname" placeholder="Username...">
+							</p>
+							<p>
+								<label for="email">Email</label><br>
+													<input type="email" readonly="true" name="email">
+							</p>
+							<p>
+								<label for="About">About your self</label><br>
+													<textarea type="text" accept="" name="about_user" placeholder="Describe yourself/proffession/"></textarea>
+							</p>
+							<p>
+								
+							<input type="submit" name="submit" value="update">
+							
+							
+								
+							</form>
+							
+							
+						</div>
+     </div>
+	
+
+	</div>
+
+	<footer class="footer">
+		2018@ iReporter
+	</footer>
+		<script src="js/main.js"></script>
+</body>
+</html>

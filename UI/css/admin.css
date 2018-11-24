@@ -31,7 +31,7 @@ position: relative;
 
 tr.row_thick td {
   border-bottom:1pt solid rgb(209, 79, 114);
-  padding:0 15px 0 15px;
+  padding:0 43px 0 43px;
 }
 
 tr.head_thick th {
@@ -40,23 +40,47 @@ tr.head_thick th {
 }
 .full_table{
     
-    margin-left: 15%;
-    height: 30%;
+    margin-left: 14%;
+   overflow: auto;
+    border: dashed;
+    width: 75%;
   
   
     
-    float:left; max-width:300px; min-width:50px; overflow-x:auto!important; white-space:nowrap;
+    float:left;  min-width:50px; overflow-x:auto!important; white-space:nowrap;
+}
+.press {
+    width: 100%;
+   background-color: #871F51;
+    color: white;
+    padding: 10px 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+}
+.press:hover {
+    background-color:#ffcccc ;
+
 }
 
-.table1 {
- width:400px;
- float: left;
- 
-}
 
 .table2 {
   width:400px;
  float:left !important;
+}
+.sidepin {
+ 
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 12%;
+    background-color: #f1f1f1;
+    height: 100%; /* Full height */
+    position: fixed; /* Make it stick, even on scroll */
+    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+
 }
 .host .preview .interv .figure {
     font-size: larger;
@@ -86,7 +110,7 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-family: fantasy;
+    font-family: none;
 }
 
 li a:hover:not(.active) {

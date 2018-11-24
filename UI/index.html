@@ -6,18 +6,18 @@
     <link rel="stylesheet" href="css/index.css">
     </head>
     <body>
-        <div>
+        <div class="container"> 
              <ul>
-                <li><a class="active" href="#home">Home</a></li>
-                <li><a href="#news">How it works</a></li>
-                <li><a href="#contact">My Account</a></li>
+                <li><a class="active" id="home_" href="#roller">Home</a></li>
+                <li><a href="#flow" id="how_">How it works</a></li>
+                <li><a href="#account" id="account_">My Account</a></li>
                
               </ul>
             <div class="menu">
                 
             </div>
             
-            <div class="roller">
+            <div class="roller" id="roller">
                 
 			<img src="img/end.jpg">
             	<figure class="fig" style="position: absolute; width: 60px; top: 30px;">
@@ -34,7 +34,7 @@
                 
             </div>
             
-            <div class="flow">
+            <div class="flow" id="flow">
                 <div class="flow-head">
                     <h2>How It Works</h2>
                 <div class="img">
@@ -70,11 +70,11 @@
                             <div class="desc"><p>Finally</p>
                              <p>-A better society-</p> <p>For all</p></div></div>
                           </div>
-  </div>
-</div>
+            </div>
+          </div>
             </div>
             
-            <div class="account">
+            <div class="account" id="account">
                 <div class="account-head">
                     <h2>Lets Get started!</h2>
                     <input type="button" onclick="swapLogin('signin');" value="Sign In">
@@ -95,14 +95,14 @@
                         </form>
                 </div>
                 <div class="signup" id="signup">
-                        <form action="">
+                        <form action="" method="POST">
                             <p>
                           <label for="fname">Email</label><br>
                           <input type="email" id="email" name="email">
                             </p>
                             <p>
                          <label for="uname">Username</label><br>
-                          <input type="text" id="uname" name="uname"><br>
+                          <input type="text" id="uname" name="uname" required><br>
                           <label for="Password">Password</label><br>
                           <input type="password" id="password" name="password"><br>
                           <label for="Password">Confirm Password</label><br>

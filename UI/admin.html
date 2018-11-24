@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		
+		<title>iReporter| Admin Pane </title> 
+		<link rel="stylesheet" href="css/admin.css" >  
+    </head>
+    <body>
+        
+        <div class="sidepin">
+              <li><a href="#new" onclick="menuOrganizer('create_entry');">
+               
+						<figure class="fig" style="position: relative; width: 60px;">
+						<span><img src="img/red_flag.png" alt="Logo image" style="width:50px; height:50px;"></span>
+						<span style="position: absolute;top: -10px;right: -10px;padding: 5px 10px; border-radius: 50%; background-color: red;color: white;">3</span>
+							
+						</figure>
+                
+              </a></li>
+                <li><a href="#update" onclick="menuOrganizer('update_entry');">
+                    <figure class="fig" style="position: relative; width: 60px;">
+						<span><img src="img/unite.png" alt="Logo image" style="width:50px; height:50px; border-radius:50%;"></span>
+						<span style="position: absolute;top: -10px;right: -10px;padding: 5px 10px; border-radius: 50%; background-color: red;color: white;">9</span>
+							
+						</figure>
+                </a></li>
+                <li><a href="#list" onclick="menuOrganizer('view_entries');">
+                    <figure class="fig" style="position: relative; width: 60px;">
+						<span><img src="img/list_icon.png" alt="Logo image" style="width:50px; height:50px;"></span>
+						<span style="position: absolute;top: -10px;right: -10px;padding: 5px 10px; border-radius: 50%; background-color: magenta;color: white;">0</span>
+							
+						</figure>
+                </a></li>
+                <li><a href="#profile" onclick="menuOrganizer('user_profile');">
+                     <figure class="fig" style="position: relative; width: 60px;">
+						<span><img src="img/edit_icon.png" alt="Logo image" style="width:50px; height:50px;"></span>
+                        <span style="position: absolute;top: -10px;right: -10px;padding: 5px 10px; border-radius: 50%; background-color: magenta;color: white;">1</span>
+						</figure>
+                </a></li>
+        </div>
+        
+              <ul>
+                <li><a href="#new" onclick="menuOrganizer('create_entry');"><b>Review</b></a></li>
+                <li><a href="#update" onclick="menuOrganizer('update_entry');"><b>Update</b></a></li>
+                <li><a href="#list" onclick="menuOrganizer('view_entries');"><b></b>Show All</a></a></li>
+                <li><a href="#profile" onclick="menuOrganizer('user_profile');"><b>Clear notifications tray</b></a></li>
+				
+               
+              </ul>
+        <div class="host">
+           
+            <div class="preview">
+                     
+
+                
+            </div>
+            
+            <div>
+                	<div class="full_table">
+					<div class="table100-head">
+						<table class="tb">
+							<thead>
+								<tr class="head_thick">
+									<th class="cell100 column1">Type</th>
+									<th class="cell100 column2">Case</th>
+									<th class="cell100 column3">Date created</th>
+									<th class="cell100 column4">From User</th>
+                                    <th class="cell100 column5">View Detail</th>
+									<th class="cell100 column5">Modify</th>
+                                    <th class="cell100 column5">Remove</th>
+                                    
+								</tr>
+							</thead>
+						</table>
+					</div>
+
+					<div class="table1">
+						<table>
+							<tbody>
+								<tr class="row_thick">
+									
+									<td class="cell100 column2">Flag</td>
+                                    <td class="cell100 column1">Corruption incidence</td>
+									<td class="cell100 column3">24/11/2018 17:50</td>
+									<td class="cell100 column4">Aron</td>
+									<td class="cell100 column5"><button class="press">Edit</button></td>
+                                    <td class="cell100 column5"><button class="press">Remove</button></td>
+                                    <td class="cell100 column5"><button class="press">View Detail</button></td>
+                                     
+								</tr>
+
+								
+								</tr>
+							</tbody>
+						</table>
+                   
+
+					
+					</div>
+				</div>
+
+            </div>
+            
+            <div>
+                
+            </div>
+        </div>
+    </body>
+</html>

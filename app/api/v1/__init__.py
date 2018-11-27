@@ -8,4 +8,4 @@ version_one = Blueprint('api_v1',__name__, url_prefix = '/api/v1/')
 
 api = Api(version_one)
 
-api.add_resource(iReporter,'/')
+api.add_resource(iReporter,'/red-flags')

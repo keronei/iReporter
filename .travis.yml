@@ -1,0 +1,12 @@
+language: python
+
+python:
+      - "3.7"
+      - "3.5"
+      - "2.7"
+
+#required dependencies
+install:
+ -pip install -r requirements.txt
+
+

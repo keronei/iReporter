@@ -21,11 +21,11 @@ class iReporterFlags(Resource, IncidenceModel):
         if identifier is None:
              return self.get_incidences()
         return self.get_incidence_by_id(identifier)
-    def put(self):
+    def put(self,identifier):
         """Implements update to an entry"""
-        return self.database.update_entry(request.get_json())         
+        return self.database.update_entry(identifier,request.get_json())         
     def post(self):
-        """Sets new data to databae(Dict)"""
+        """Sets new data to database(Dict)"""
         flags = RedFlagSchema().load(request.get_json())
         self.database.add_incidence(flags.data)
         return 'OK', 204

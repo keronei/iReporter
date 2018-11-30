@@ -43,7 +43,7 @@ class IncidenceModel():
         INCIDENCE.pop(index)
         #self.database = flags.data
         INCIDENCE.append(objected.data)
-        return updated_dict, "PERFECT"
+        return updated_dict, 200
     def manual_update_helper(self, dict_one, dict_two):
         """Manually updates the dictionary by flipping and re-assigning"""
         fin = dict_one.copy()
@@ -70,5 +70,5 @@ class IncidenceModel():
     def remove_entry(self, identifier):
         """Removes a single entry identifieid by id"""
         INCIDENCE.pop(self.find_index(identifier))
-        return "OK", 204
+        return "OK", 200
     

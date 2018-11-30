@@ -3,7 +3,7 @@ language: python
 python:
 - '3.6'
 
-install: "pip install -r requirements.txt"
+install:- "pip install -r requirements.txt"
 deploy:
   api_key:
     secure: DHixWk1rNaeOPFym6nbT8tIxufUqgcDft47yaMQOvMWjlDqOUHbapVgJAO/Ek9o+J6zsgVGprlcrBKw/7w/3mhEM5FZuqlx1/M$
@@ -13,4 +13,4 @@ pytest --cov-report term-missing --cov=./app/ app/tests/v1/test.py
 
 branches:
  only:
- -develop
+ - develop

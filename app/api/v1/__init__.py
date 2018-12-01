@@ -1,4 +1,4 @@
-from .views import iReporterFlags, User
+from .views.views import iReporterFlags, User
 
 from flask_restful import Api, Resource
 

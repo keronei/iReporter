@@ -4,8 +4,9 @@ python:
 install: pip install -r requirements.txt
 
 script:
-pytest --cov-report term-missing --cov=app app/tests/v1/
+  - pytest --cov-report term-missing --cov=app app/tests/v1/
 after_success: coveralls
+
 #safelist
 branches:
   only:

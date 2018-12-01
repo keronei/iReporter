@@ -10,21 +10,21 @@ On the other end, the backend to this platform is hosted [here](http://ireporter
 
 In order to use the backend, the following endpoints are to be utilised:
 
-            To Retrieve all entries:
-                
-                    ```http://ireporter-platform.herokuapp.com/api/v1/red-flag```
-                    ```http://ireporter-platform.herokuapp.com/api/v1/intervention```
-            To Retrieve a single entry:
+To Retrieve all entries:
 
-                ```http://ireporter-platform.herokuapp.com/api/v1/red-flag/<id>```
+        ```http://ireporter-platform.herokuapp.com/api/v1/red-flag```
+        ```http://ireporter-platform.herokuapp.com/api/v1/intervention```
+To Retrieve a single entry:
 
-            To update a specific entry's location using PATCH request:
+        ```http://ireporter-platform.herokuapp.com/api/v1/red-flag/<id>```
 
-                ```http://ireporter-platform.herokuapp.com/api/v1/red-flag/<id>/location```
+To update a specific entry's location using PATCH request:
 
-            To Update a specific entry's comment:
-                ```
-                http://ireporter-platform.herokuapp.com/api/v1/red-flag/<id>/comment
+        ```http://ireporter-platform.herokuapp.com/api/v1/red-flag/<id>/location```
+
+To Update a specific entry's comment:
+            ```
+                  http://ireporter-platform.herokuapp.com/api/v1/red-flag/<id>/comment
                 ```
 
 The version 2 bit of this platform uses PostgreSql as the backend while the initial uses a simple Dictionary. In order to consume / provide data to V2 endpoint, you will only replace /v1/ with /v2/

@@ -1,13 +1,17 @@
 language: python
 python:
-- "3.6"
-install: pip install -r requirements.txt
-
+- '3.6'
+install:- pip install -r requirements.txt
+        - pip install codecov
 script:
-  - pytest --cov-report term-missing --cov=app app/tests/v1/test.py
-after_success: coveralls
-
-#safelist
+- pytest --cov-report term-missing --cov=app app/tests/v1/test.py
+after_success: - coveralls
+               - codecov
 branches:
   only:
-    - develop
+  - develop
+deploy:
+  - heroku
+    api_key:
+      secure: 2aZHEyC5JogokaQLgL+SSxA+wG3tEEQt82eUvFABMEFud2W/tYlVeagoLvj1E8fY8fL9RUFmDmMsSG8sUwReW9N5ga6hCsFsNpd7CJl5qOyWB/f+Y0orkmCODSHtvjplK6kQZ1OOuSq/w/QfYb9lrFIJ076r4H46yP5ICAO/aqMLovEhb974fW3msXcQhtUsDlREXhPXVlixO++Ws+Wj/PUf/koBFIIvBKhMkEmJ/to8z+DoIiwY+585sNAefHcDDEHumGW3I/S3fBxEEs5tyrBXKyd+tu2oyVnyqBZb8gujGOvBuGX8TO2n7gjafvislQt3bCVE3TcMvT0ZzWZIlApEzbWLOcFhNy7grUGcMHi6Dxzt5AbK7+9xLoyANjO1K1TiGnNxB+Dh49QAfdO+fOivW5ijJ77D/Bd1Gy9vpv8cBxtx97k5EWTLjs0JLYwb/IFX/eqf072m+778r2q1bcSJLi+ttldXADd+Hw0Ev7IGZ2bgfHTyGX3V4D5taMxIixsiaIWmZduv86gIYQWk9s1TTnfNJOiYkO2GJtEtrDS3n9PN89C2PiXHBtmdxb0TLMUefupAqqu0Ewk0FhXQrgaGnFS4jJjfSlK6GXyAtPvoiPykG1l6tWaiZXsrrWmp5TObAgiBXRu0RMgCDbKRFmc+4+zi5w7jSLypArPqCsY=
+      app: ireporter-platform

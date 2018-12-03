@@ -19,8 +19,10 @@ class iReporterFlags(Resource, IncidenceModel):
         if its a single entry request or all
         """
         if identifier is None:
-             return self.get_incidences()
-        return self.get_incidence_by_id(identifier)
+             
+             return self.custom_response({'data': self.get_incidences()}, 200)
+        
+        return self.custom_response({'data': self.get_incidence_by_id(identifier) }, 200)
     def put(self,identifier):
         """Implements update to an entry"""
         return self.database.update_entry(identifier,request.get_json())         
@@ -28,10 +30,21 @@ class iReporterFlags(Resource, IncidenceModel):
         """Sets new data to database(Dict)"""
         flags = RedFlagSchema().load(request.get_json())
         self.database.add_incidence(flags.data)
-        return 'OK', 204
+        return self.custom_response({'data': 'Created'}, 204)
     def delete(self, identifier):
         """Basically removes a single entry provided by the id as identify"""
-        return self.database.remove_entry(identifier)     
+        self.database.remove_entry(identifier)
+        return self.custom_response({'data': 'Deleted'}, 200)
+    
+    def custom_response(res, status_code):
+        """
+        Custom Response Function
+        """
+        return Response(
+          mimetype="application/json",
+          response=json.dumps(res),
+          status=status_code
+        )
 class User(Resource):
     """User view handler"""
     def __init__(self):

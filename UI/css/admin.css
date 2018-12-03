@@ -22,7 +22,11 @@ position: relative;
     position: relative;
     
     float: right;
+<<<<<<< HEAD
     width: 35%;
+=======
+    width: 40%;
+>>>>>>> 20b8b0a7e5b710f1036548c65eec31b4646b5b39
     height: inherit;
    
     text-align: center;
@@ -43,7 +47,11 @@ tr.head_thick th {
     margin-left: 14%;
    overflow: auto;
     border: dashed;
+<<<<<<< HEAD
     width: 80%;
+=======
+    width: 75%;
+>>>>>>> 20b8b0a7e5b710f1036548c65eec31b4646b5b39
   
   
     

@@ -91,3 +91,6 @@ function swapLogin(activate){
        
        
 }
+function goto_home(){
+   window.open("home.html","_self");
+}

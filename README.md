@@ -64,6 +64,36 @@ If you would wish to get a taste of how things feel like without following the a
 The backend to this platform is hosted [here](http://ireporter-platform.herokuapp.com/) on Heroku.
 
 In order to use the backend, the following endpoints are to be utilised:
+To create a new entry of red-flag:
+
+    POST: http://ireporter-platform.herokuapp.com/api/v1/red-flag
+with the params as follows:
+
+    {
+    "id":90,
+    "CreatedBy":9,
+    "Images":["img/fifty.jpg"],
+    "Videos":["movies/video.mp3","clips/footage.mp4"],
+    "comment":"Case observed today",
+    "location":"90,0",
+    "status":"Pending"
+
+    }
+    
+you can use *Postman* or any other platform used for API consumption. *CURL* is a goodone as well but remember to add some headers like:
+
+    curl -X POST -H "Content-Type: application/json" -d '{
+    
+    "id":90,
+    "CreatedBy":9,
+    "Images":["img/fifty.jpg"],
+    "Videos":["movies/video.mp3","clips/footage.mp4"],
+    "comment":"Case observed today",
+    "location":"90,0",
+    "status":"Pending"
+    
+    
+    }' http://hosted_end/api/v1/red-flag
 
 To Retrieve all entries:
 
@@ -80,7 +110,19 @@ To update a specific entry's location using PATCH request:
 To Update a specific entry's comment:
 
         http://ireporter-platform.herokuapp.com/api/v1/red-flag/<id>/comment
-                
+        
+Universal updates(Various fields, Applied for admin role) takes the following format:
+
+    curl -X PUT -H "Content-Type: application/json" -d '{
+
+    "comment":"Case observed today",
+    "location":"90,0",
+    "status":"Pending"
+
+
+    }' http://hosted_end/api/v1/red-flag/90
+    
+You may have noticed that some entries are missing. This is because of validation and other automated fields like _updated_at_ fields and _created_by_ which bassically remains to be fixed by system and retained respectively. 
 
 The version 2 bit of this platform uses PostgreSql as the backend while the initial uses a simple Dictionary. In order to consume / provide data to V2 endpoint, you will only replace /v1/ with /v2/
 

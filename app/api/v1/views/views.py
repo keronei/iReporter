@@ -6,7 +6,7 @@ from flask_restful import Resource
 from ..models.models import IncidenceModel
 from ..models.red_flags import RedFlagSchema
 
-class iReporterFlags(Resource, IncidenceModel):
+class IreporterFlags(Resource, IncidenceModel):
     """
     This class receives and serves requests as api endpoints.
     """

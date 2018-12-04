@@ -5,9 +5,11 @@ from .api.v2 import version_two as v2
 from .config import app_config
 from .api.v2.models import db
 
-def launcher():
+def launcher(config=None):
     app = Flask(__name__)
-    app.config.from_object(app_config['development'])
+    if not config:
+        config = app_config["production"]
+    app.config.from_object(config)
     db.init_app(app)
     app.register_blueprint(v1)
     app.register_blueprint(v2)

@@ -1,7 +1,8 @@
 """
 This file receives and serves requests as api endpoints.
 """
-from flask import request
+from flask import request, Response
+import json
 from flask_restful import Resource
 from ..models.models import IncidenceModel
 from ..models.red_flags import RedFlagSchema
@@ -36,7 +37,7 @@ class iReporterFlags(Resource, IncidenceModel):
         self.database.remove_entry(identifier)
         return self.custom_response({'data': 'Deleted'}, 200)
     
-    def custom_response(res, status_code):
+    def custom_response(self, res, status_code):
         """
         Custom Response Function
         """

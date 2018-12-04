@@ -1,15 +1,16 @@
 language: python
 python:
-- '3.6'
-install:- pip install -r requirements.txt
-        - pip install codecov
+	- '3.6'
+install: pip install -r requirements.txt
+         pip install codecov
 script:
-- pytest --cov-report term-missing --cov=app app/tests/v1/test.py
-after_success: - coveralls
-               - codecov
+	 pytest --cov-report term-missing --cov=app app/tests/v1/test.py
+after_success:
+	 coveralls
+              
 branches:
   only:
-  - develop
+        develop
 #deploy:
  # - heroku
   #  api_key:

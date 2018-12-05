@@ -11,18 +11,17 @@ class IncidenceModel():
     def add_incidence(self, data):
         """Adds a new entry of flag"""
         self.database.append(data)
-        return "Saved", 201
     def get_incidences(self):
         """Returns all flag entries"""
         schema = RedFlagSchema(many=True)
         flags = schema.dump(
             filter(lambda i: i.type == IncidenceType.REDFLAG, INCIDENCE)
         )
-        return {"Status":200, "Data":schema.dump(INCIDENCE)}
+        return schema.dump(INCIDENCE)
     def get_incidence_by_id(self, identifier):
         """Gets a single entry of of flag recognized by id"""
         flags = self.get_entry_helper(identifier)
-        return {"Status":200, "Data":flags} 
+        return flags 
     def update_entry(self, identifier, data):
         """Ofcourse updates a single entry identified by id"""
         hack = self.get_entry_helper(identifier)
@@ -42,7 +41,7 @@ class IncidenceModel():
         INCIDENCE.pop(index)
         #self.database = flags.data
         INCIDENCE.append(objected.data)
-        return updated_dict, 200
+        return updated_dict
     def manual_update_helper(self, dict_one, dict_two):
         """Manually updates the dictionary by flipping and re-assigning"""
         fin = dict_one.copy()
@@ -69,5 +68,5 @@ class IncidenceModel():
     def remove_entry(self, identifier):
         """Removes a single entry identifieid by id"""
         INCIDENCE.pop(self.find_index(identifier))
-        return "OK", 200
+        return "OK"
     

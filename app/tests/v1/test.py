@@ -1,24 +1,24 @@
 import unittest
 from flask import request
 import json
+import sys
 from ... import launcher
+
 app = launcher()
-
-
 class TestFlaskEndPoints(unittest.TestCase):
-
     def setUp(self):
         self.app = app.test_client()
-        self.data = {
-            'id': 23243,
-            'CreatedBy': 9,
-            'Images': ['fifty.jpg', 'bribe.png'],
-            'Videos': ['local.mp3', 'footage.mp4'],
-            'comment': 'Requires imediate attention',
-            'location': '90,0',
-            'status': 'Pending',
-            }
-
+        self.data = json.dumps({
+                        "id":23243,
+                        "CreatedBy":9,
+                        "Images":["fifty.jpg","bribe.png"],
+                        "Videos":["local.mp3","footage.mp4"],
+                        "comment":"Requires imediate attention",
+                        "location":"90,0",
+                        "status":"Pending"
+                        
+                     })
+        
     def test_create_new_flag(self):
         with app.test_request_context():
             response = self.app.post('/api/v1/red-flag',
@@ -30,8 +30,9 @@ class TestFlaskEndPoints(unittest.TestCase):
             self.assertEqual(json_feedback.get('data'), 'Created',
                              "Should return 'Created' as the success message"
                              )
-
+               
     def test_fetching_all_flags(self):
+
         with app.test_request_context():
 
             # first create an entry, then fetch to ascertain that the replied response is as expected

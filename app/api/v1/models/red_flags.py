@@ -1,13 +1,11 @@
 from marshmallow import post_load
-from .incidence import Incidence, IncidenceSchema, IncidenceUpdate
+from .incidence import Incidence, IncidenceSchema
 from .incidence_type import IncidenceType 
 
 class RedFlag(Incidence):
     def __init__(self,id,CreatedBy,location,status,Images,Videos,comment):
         super(RedFlag,self).__init__(id,CreatedBy,location,status,Images,Videos,comment,IncidenceType.REDFLAG)
         
-    def __repr__(self):
-        return '<RedFlag(id={self.id!r})>'.format(self=self)
 
 
 class RedFlagUpdate():
@@ -21,9 +19,7 @@ class RedFlagUpdate():
         self.Images = Images
         self.Videos = Videos
         self.comment = comment
-        
-    def __repr__(self):
-        return '<RedFlag(id={self.id!r})>'.format(self=self)    
+           
     
 class RedFlagSchema(IncidenceSchema):
     @post_load

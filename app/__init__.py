@@ -8,6 +8,5 @@ def launcher(config=None):
     if not config:
         config = app_config["production"]
     app.config.from_object(config)
-    db.init_app(app)
     app.register_blueprint(v1)
     return app

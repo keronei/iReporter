@@ -54,7 +54,9 @@ This step activates the environment so that all the python procedures are done s
 ```
 Once The setup is complete, You may wish to run the tests to ascertain that they meet the expectations. Go ahead and do:
 
-```$-> pytest --cov-report term-missing --cov=app app/tests/v1/test.py
+```
+$-> pytest --cov-report term-missing --cov=app app/tests/v1/test.py
+
 ```
 The command combines various params in order to provide detail on the tests which include coverage and finer detail on which lines were left out by the tests. The coverage dependencies should have been installed with the others in `requirements.txt` file.
 

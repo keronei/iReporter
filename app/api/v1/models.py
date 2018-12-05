@@ -10,6 +10,7 @@ class IncidenceModel():
         self.database = INCIDENCE
     def add_incidence(self, data):
         """Adds a new entry of flag"""
+        print(data)
         self.database.append(data)
         return "Saved", 201
     def get_incidences(self):

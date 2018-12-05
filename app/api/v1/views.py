@@ -1,11 +1,10 @@
 """
 This file receives and serves requests as api endpoints.
 """
-from flask import request, Response
-import json
+from flask import request
 from flask_restful import Resource
-from ..models.models import IncidenceModel
-from ..models.red_flags import RedFlagSchema
+from .models import IncidenceModel
+from .red_flags import RedFlagSchema
 
 class iReporterFlags(Resource, IncidenceModel):
     """
@@ -20,10 +19,8 @@ class iReporterFlags(Resource, IncidenceModel):
         if its a single entry request or all
         """
         if identifier is None:
-             
-             return self.custom_response({'data': self.get_incidences()}, 200)
-        
-        return self.custom_response({'data': self.get_incidence_by_id(identifier) }, 200)
+             return self.get_incidences()
+        return self.get_incidence_by_id(identifier)
     def put(self,identifier):
         """Implements update to an entry"""
         return self.database.update_entry(identifier,request.get_json())         
@@ -31,21 +28,10 @@ class iReporterFlags(Resource, IncidenceModel):
         """Sets new data to database(Dict)"""
         flags = RedFlagSchema().load(request.get_json())
         self.database.add_incidence(flags.data)
-        return self.custom_response({'data': 'Created'}, 204)
+        return 'OK', 204
     def delete(self, identifier):
         """Basically removes a single entry provided by the id as identify"""
-        self.database.remove_entry(identifier)
-        return self.custom_response({'data': 'Deleted'}, 200)
-    
-    def custom_response(self, res, status_code):
-        """
-        Custom Response Function
-        """
-        return Response(
-          mimetype="application/json",
-          response=json.dumps(res),
-          status=status_code
-        )
+        return self.database.remove_entry(identifier)     
 class User(Resource):
     """User view handler"""
     def __init__(self):

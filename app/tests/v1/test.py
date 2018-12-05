@@ -49,7 +49,7 @@ class TestFlaskEndPoints(unittest.TestCase):
             self.assertTrue(self.helper_json_checker(next_list),
                             'The returned value should be a valid JSON')
 
-    def test_get_single_flag(self):
+    def test_get_single_flag_by_id(self):
         with app.test_request_context():
             response = self.app.post('/api/v1/red-flag',
                     headers={'Content-Type': 'application/json'},

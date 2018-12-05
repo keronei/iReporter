@@ -4,7 +4,6 @@ import json
 from ... import launcher
 app = launcher()
 
-
 class TestFlaskEndPoints(unittest.TestCase):
 
     def setUp(self):
@@ -30,7 +29,7 @@ class TestFlaskEndPoints(unittest.TestCase):
             self.assertEqual(json_feedback.get('data'), 'Created',
                              "Should return 'Created' as the success message"
                              )
-
+ 
     def test_fetching_all_flags(self):
         with app.test_request_context():
 

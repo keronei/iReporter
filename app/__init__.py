@@ -10,3 +10,4 @@ def launcher(config=None):
     app.config.from_object(config)
     app.register_blueprint(v1)
     return app
+

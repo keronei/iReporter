@@ -5,13 +5,6 @@ from flask import request, jsonify, Response
 from flask_restful import Resource
 import json
 from ..models.user_model import UserModel
-from ..models.incidence import Incidence, IncidenceSchema
-from ..models.red_flags import RedFlagSchema, RedFlag
-from ..models.incidence_type import IncidenceType 
-
-incidence_s = IncidenceSchema(many=True)
-incidence = RedFlagSchema()
-
 
 class UserView(Resource):
 
@@ -47,10 +40,3 @@ class UserView(Resource):
           response=json.dumps(res),
           status=status_code
         )
-class User(Resource):
-    """User view handler"""
-    def __init__(self):
-        self.runs = "Waiting for name.."
-    def get(self, name):
-        """Retrieves the available entry identified by name"""
-        return name

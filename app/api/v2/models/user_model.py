@@ -12,10 +12,11 @@ class UserModel():
     def __init__(self):
         self.db_connect = DataBase().db
         self.migrations = DataBase().create_tables()
+        self.checker = checker_sql = "SELECT id, email, password from users WHERE email = %s;"
     def add_user(self, data):
         """Adds a new user via sign up"""
         #fetch to see if exists:
-        checker_sql = "SELECT id, email from users WHERE email = %s;"
+        
         creator_sql = "INSERT into users(firstname, lastname, email, username, isadmin, password, phonenumber) VALUES (%s, %s, %s, %s, False, %s, %s) RETURNING id;"
         cursor = self.db_connect.cursor()
         parse_received_data = json.dumps(data)
@@ -26,9 +27,9 @@ class UserModel():
         sent_mail = string_format['email'] 
         sent_phonenumber = string_format['phoneNumber']
         sent_username = string_format['username']
-        sent_password = string_format['email']
+        sent_password = string_format['password']
         
-        existing = cursor.execute(checker_sql, (sent_mail,))
+        existing = cursor.execute(self.checker, (sent_mail,))
         found_count = cursor.fetchall()
         if cursor.rowcount > 0:
             return sent_mail ,"Already registered!"
@@ -39,9 +40,8 @@ class UserModel():
         cursor.close()
        
         return "user created with id:",generated_id
-    def user_login(self):
+    def user_login(self, credentials):
         """Auth an existing user"""
-
         pass
     def generate_token(self,user_id):
         """Generate the token"""

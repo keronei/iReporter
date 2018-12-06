@@ -20,9 +20,10 @@ class UserView(Resource):
         
         result = self.model.add_user(request.get_json())
         
-        return self.custom_response({"data": result}, 200)
+        return Helper.custom_response({"data": result}, 200)
         
-    def custom_response(self,res, status_code):
+class Helper():
+    def custom_response(res, status_code):
         """
         Custom Response Function
         """
@@ -31,3 +32,4 @@ class UserView(Resource):
           response=json.dumps(res),
           status=status_code
         )
+    

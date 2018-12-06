@@ -42,7 +42,7 @@ class UserModel():
     def user_login(self):
         """Auth an existing user"""
 
-        return {"Status":200, "Data":"superman"}
+        pass
     def generate_token(self,user_id):
         """Generate the token"""
         try:

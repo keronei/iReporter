@@ -25,3 +25,4 @@ python-editor==1.0.3
 pytz==2018.7
 six==1.11.0
 Werkzeug==0.14.1
+PyJWT==1.7.0

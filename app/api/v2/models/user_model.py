@@ -3,7 +3,7 @@ import psycopg2
 import jwt
 import json
 from datetime import datetime, timedelta
-from ....config import DataBase
+from .database.database import DataBase
 from ....config import app_config
 
 
@@ -13,10 +13,10 @@ class UserModel():
         self.db_connect = DataBase().db
         self.migrations = DataBase().create_tables()
         self.checker = checker_sql = "SELECT id, email, password from users WHERE email = %s;"
+        
     def add_user(self, data):
         """Adds a new user via sign up"""
-        #fetch to see if exists:
-        
+        # fetch to see if exists:
         creator_sql = "INSERT into users(firstname, lastname, email, username, isadmin, password, phonenumber) VALUES (%s, %s, %s, %s, False, %s, %s) RETURNING id;"
         cursor = self.db_connect.cursor()
         parse_received_data = json.dumps(data)
@@ -32,18 +32,18 @@ class UserModel():
         existing = cursor.execute(self.checker, (sent_mail,))
         found_count = cursor.fetchall()
         if cursor.rowcount > 0:
-            return sent_mail ,"Already registered!"
-        
+            return sent_mail, "Already registered!"
         cursor.execute(creator_sql, (sent_firstname,sent_secondname, sent_mail, sent_username, sent_password, sent_phonenumber,))
         generated_id = cursor.fetchone()[0]
         self.db_connect.commit()
         cursor.close()
-       
-        return "user created with id:",generated_id
+        return "user created with id:", generated_id
+    
     def user_login(self, credentials):
         """Auth an existing user"""
         pass
-    def generate_token(self,user_id):
+    
+    def generate_token(self, user_id):
         """Generate the token"""
         try:
             payload = {
@@ -59,6 +59,7 @@ class UserModel():
             return jwt_string
         except Exception as e:
             return str(e)
+        
     @staticmethod
     def decode_token(token):
         """Decode auth token from header """
@@ -69,8 +70,9 @@ class UserModel():
             return "Token expired, You may have to login again"
         except jwt.InvalidTokenError:
             return "Invalid token. Login or create an account instead"
+        
     def user_helper(self, identifier):
-        """"""
+        """Helper function to verify user id's"""
         flags = self.get_entry_helper(identifier)
-        return {"Status":200, "Data":flags} 
+        return flags 
     

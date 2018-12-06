@@ -23,11 +23,11 @@ class UserView(Resource):
         for entry in received_data:
             count += 1
         if count < 6:
-            return self.custom_response({'status': 200, 'data': 'Less params.'}, 200)
+            return Helper.custom_response({'status': 412, 'data': 'Less params.'}, 412)# pre-condition failed error code
         if self.validator(received_data):
             result = self.model.add_user(received_data)
             return Helper.custom_response({"data": result}, 200)
-        return self.custom_response({'status': 200, 'data': 'Your credentials were invalid.'}, 200)
+        return Helper.custom_response({'status': 422, 'data': 'Your credentials were invalid.'}, 422)# Validation failure
      
         
     def validator(self, json_data):
@@ -40,7 +40,7 @@ class UserView(Resource):
         error_secondname = isinstance(string_formatted["secondname"], str)
         error_phone = isinstance(string_formatted["phoneNumber"], str)
         error_username = isinstance(string_formatted["username"], str)        
-        is_valid = validate_email('example@example.com')
+        is_valid = validate_email(string_formatted["username"])
         
         if False in {error_firstname, error_secondname, error_phone, error_username, is_valid} :
            return False

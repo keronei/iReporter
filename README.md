@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/keronei/iReporter.svg?branch=develop)](https://travis-ci.org/keronei/iReporter)  [[Coverage Status](https://coveralls.io/repos/github/keronei/iReporter/badge.svg?branch=develop)](https://coveralls.io/github/keronei/iReporter?branch=develop)
+[![Build Status](https://travis-ci.org/keronei/iReporter.svg?branch=develop)](https://travis-ci.org/keronei/iReporter)  
+
+[![Coverage Status](https://coveralls.io/repos/github/keronei/iReporter/badge.svg?branch=develop)](https://coveralls.io/github/keronei/iReporter?branch=develop)
 
 
 # iReporter

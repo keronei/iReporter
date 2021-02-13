@@ -35,17 +35,19 @@ class IreporterFlags(Resource, IncidenceModel):
     def post(self):
         """Sets new data to database(Dict)"""
         received_data = request.get_json()
-        print(received_data)
         count = 0
         for entry in received_data:
             count += 1
         if count < 7:
             return self.custom_response({'status': 200, 'data': 'Less params.'}, 200)
+        
+        if  self.validator(received_data):
+            flags = RedFlagSchema().load(received_data)
+            self.database.add_incidence(flags.data)
             
-        flags = RedFlagSchema().load(received_data)
-     
-        self.database.add_incidence(flags.data)
-        return self.custom_response({'status': 204, 'data': 'Created'}, 200)
+            return self.custom_response({'status': 204, 'data': 'Created'}, 200)
+        
+        return self.custom_response({'status': 204, 'data': 'Invalid data types.'}, 200)
         
     def delete(self, identifier=None):
         """Basically removes a single entry provided by the id as identify"""
@@ -64,6 +66,24 @@ class IreporterFlags(Resource, IncidenceModel):
           response=json.dumps(res),
           status=status_code
         )
+    
+    def validator(self, json_data):
+        """Check all the values in json and assign back to error,
+        Finally, the result would remain in error as bool"""
+        formated = json.dumps(json_data)
+        string_formatted = json.loads(formated)
+
+        error_id = isinstance(string_formatted["id"], int)
+        error_created_by = isinstance(string_formatted["CreatedBy"], int)
+        error_comment = isinstance(string_formatted["comment"], str)
+        error_status = isinstance(string_formatted["status"], str)
+        error_images = isinstance(string_formatted["Images"], list)
+        error_videos = isinstance(string_formatted["Videos"], list)
+        
+        if False in {error_id, error_created_by, error_comment, error_status, error_images, error_videos} :
+           return False
+        return True
+             
 class User(Resource):
     """User view handler"""
     def __init__(self):
